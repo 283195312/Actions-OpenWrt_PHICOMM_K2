@@ -108,11 +108,11 @@ jobs:
         # 
         # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
         # 
-        # 编译phicomm k2固件:
+        # 编译YK-L1固件:
         cat >> .config <<EOF
         CONFIG_TARGET_ramips=y
         CONFIG_TARGET_ramips_mt7620=y
-        CONFIG_TARGET_ramips_mt7620_DEVICE_phicomm_psg1218a=y
+        CONFIG_TARGET_ramips_mt7620_DEVICE_youku_yk1=y
         # CONFIG_TARGET_x86 is not set
         # CONFIG_TARGET_x86_64 is not set
         # CONFIG_TARGET_x86_64_Generic is not set
@@ -357,6 +357,6 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt phicomm k2
+        name: OpenWrt YK-L1
         path: ./openwrt/artifact/
 
