@@ -9,7 +9,7 @@ name: Build OpenWrt
 
 on: 
   release:
-    types: [published]
+    types: published
   push:
     branches: 
       - master
@@ -67,7 +67,7 @@ jobs:
         git clone https://github.com/Kinodi/luci-theme-atmaterial openwrt/package/luci-theme-atmaterial
         git clone https://github.com/jerrykuku/luci-theme-argon openwrt/package/luci-theme-argon
         git clone https://github.com/Lienol/openwrt-package openwrt/package/openwrt-package
-
+        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -307,6 +307,8 @@ jobs:
         # CONFIG_PACKAGE_luci-app-wrtbwmon is not set
         # CONFIG_PACKAGE_luci-app-xlnetacc is not set
         # CONFIG_PACKAGE_luci-app-zerotier is not set
+        CONFIG_PACKAGE_luci-app-filebrowser=y
+        CONFIG_PACKAGE_luci-i18n-filebrowser-zh-cn=y
         EOF
         # LuCI主题:
         # cat >> .config <<EOF
